@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="galileoBookingApp.addressInBooking.detail.title">Address In Booking</span> {{vm.addressInBooking.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="galileoBookingApp.addressInBooking.customerName">Customer Name</span></dt>
+        <dd>
+            <span>{{vm.addressInBooking.customerName}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.streetAddress1">Street Address 1</span></dt>
+        <dd>
+            <span>{{vm.addressInBooking.streetAddress1}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.streetAddress2">Street Address 2</span></dt>
+        <dd>
+            <span>{{vm.addressInBooking.streetAddress2}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.city">City</span></dt>
+        <dd>
+            <span>{{vm.addressInBooking.city}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.state">State</span></dt>
+        <dd>
+            <span>{{vm.addressInBooking.state}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.zip">Zip</span></dt>
+        <dd>
+            <span>{{vm.addressInBooking.zip}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.typeAddress">Type Address</span></dt>
+        <dd>
+            <span data-translate="{{'galileoBookingApp.TypeAddress.' + vm.addressInBooking.typeAddress}}">{{vm.addressInBooking.typeAddress}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.country">Country</span></dt>
+        <dd>
+            <a ui-sref="country-detail({id:vm.addressInBooking.country.id})">{{vm.addressInBooking.country.id}}</a>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.addressInBooking.booking">Booking</span></dt>
+        <dd>
+            <a ui-sref="booking-detail({id:vm.addressInBooking.booking.id})">{{vm.addressInBooking.booking.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="address-in-booking-detail.edit({id:vm.addressInBooking.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

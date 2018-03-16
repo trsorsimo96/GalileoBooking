@@ -1,0 +1,93 @@
+<div>
+    <h2 data-translate="galileoBookingApp.addressInBooking.home.title">Address In Bookings</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="address-in-booking.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="galileoBookingApp.addressInBooking.home.createLabel">
+                        Create new Address In Booking
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'galileoBookingApp.addressInBooking.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.customerName">Customer Name</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.streetAddress1">Street Address 1</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.streetAddress2">Street Address 2</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.city">City</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.state">State</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.zip">Zip</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.typeAddress">Type Address</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.country">Country</span></th>
+                    <th><span data-translate="galileoBookingApp.addressInBooking.booking">Booking</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="addressInBooking in vm.addressInBookings track by addressInBooking.id">
+                    <td><a ui-sref="address-in-booking-detail({id:addressInBooking.id})">{{addressInBooking.id}}</a></td>
+                    <td>{{addressInBooking.customerName}}</td>
+                    <td>{{addressInBooking.streetAddress1}}</td>
+                    <td>{{addressInBooking.streetAddress2}}</td>
+                    <td>{{addressInBooking.city}}</td>
+                    <td>{{addressInBooking.state}}</td>
+                    <td>{{addressInBooking.zip}}</td>
+                    <td data-translate="{{'galileoBookingApp.TypeAddress.' + addressInBooking.typeAddress}}">{{addressInBooking.typeAddress}}</td>
+                    <td>
+                        <a ui-sref="country-detail({id:addressInBooking.country.id})">{{addressInBooking.country.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="booking-detail({id:addressInBooking.booking.id})">{{addressInBooking.booking.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="address-in-booking-detail({id:addressInBooking.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="address-in-booking.edit({id:addressInBooking.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="address-in-booking.delete({id:addressInBooking.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

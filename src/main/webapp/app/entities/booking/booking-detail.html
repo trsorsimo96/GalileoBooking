@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="galileoBookingApp.booking.detail.title">Booking</span> {{vm.booking.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="galileoBookingApp.booking.pnr">Pnr</span></dt>
+        <dd>
+            <span>{{vm.booking.pnr}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.booking.formOfPayment">Form Of Payment</span></dt>
+        <dd>
+            <span data-translate="{{'galileoBookingApp.FormOfPayment.' + vm.booking.formOfPayment}}">{{vm.booking.formOfPayment}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.booking.cost">Cost</span></dt>
+        <dd>
+            <span>{{vm.booking.cost}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.booking.agency">Agency</span></dt>
+        <dd>
+            <a ui-sref="agency-detail({id:vm.booking.agency.id})">{{vm.booking.agency.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="booking-detail.edit({id:vm.booking.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

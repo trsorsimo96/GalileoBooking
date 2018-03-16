@@ -1,0 +1,64 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPhoneInBookingLabel" data-translate="galileoBookingApp.phoneInBooking.home.createOrEditLabel">Create or edit a Phone In Booking</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.phoneInBooking.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.phoneInBooking.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.phoneInBooking.phoneType" for="field_phoneType">Phone Type</label>
+            <select class="form-control" name="phoneType" ng-model="vm.phoneInBooking.phoneType" id="field_phoneType" required>
+                <option value="ACCOMODATION" data-translate="galileoBookingApp.PhoneType.ACCOMODATION">ACCOMODATION</option>
+                <option value="AGENCY" data-translate="galileoBookingApp.PhoneType.AGENCY">AGENCY</option>
+                <option value="EMAIL" data-translate="galileoBookingApp.PhoneType.EMAIL">EMAIL</option>
+                <option value="FAX" data-translate="galileoBookingApp.PhoneType.FAX">FAX</option>
+                <option value="HOME" data-translate="galileoBookingApp.PhoneType.HOME">HOME</option>
+                <option value="MOBILE" data-translate="galileoBookingApp.PhoneType.MOBILE">MOBILE</option>
+                <option value="NOCONTACT" data-translate="galileoBookingApp.PhoneType.NOCONTACT">NOCONTACT</option>
+                <option value="OTHER" data-translate="galileoBookingApp.PhoneType.OTHER">OTHER</option>
+                <option value="WORK" data-translate="galileoBookingApp.PhoneType.WORK">WORK</option>
+            </select>
+            <div ng-show="editForm.phoneType.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.phoneType.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.phoneInBooking.number" for="field_number">Number</label>
+            <input type="text" class="form-control" name="number" id="field_number"
+                    ng-model="vm.phoneInBooking.number"
+                    required/>
+            <div ng-show="editForm.number.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="galileoBookingApp.phoneInBooking.booking" for="field_booking">Booking</label>
+            <select class="form-control" id="field_booking" name="booking" ng-model="vm.phoneInBooking.booking" ng-options="booking as booking.id for booking in vm.bookings track by booking.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

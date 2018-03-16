@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span data-translate="galileoBookingApp.agency.detail.title">Agency</span> {{vm.agency.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="galileoBookingApp.agency.pCC">P CC</span></dt>
+        <dd>
+            <span>{{vm.agency.pCC}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agency.name">Name</span></dt>
+        <dd>
+            <span>{{vm.agency.name}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agency.codeIata">Code Iata</span></dt>
+        <dd>
+            <span>{{vm.agency.codeIata}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agency.isIata">Is Iata</span></dt>
+        <dd>
+            <span>{{vm.agency.isIata}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agency.logo">Logo</span></dt>
+        <dd>
+            <div ng-if="vm.agency.logo">
+                <a ng-click="vm.openFile(vm.agency.logoContentType, vm.agency.logo)" data-translate="entity.action.open">open</a>
+                {{vm.agency.logoContentType}}, {{vm.byteSize(vm.agency.logo)}}
+            </div>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agency.email">Email</span></dt>
+        <dd>
+            <span>{{vm.agency.email}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agency.phone">Phone</span></dt>
+        <dd>
+            <span>{{vm.agency.phone}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agency.address">Address</span></dt>
+        <dd>
+            <span>{{vm.agency.address}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="agency-detail.edit({id:vm.agency.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

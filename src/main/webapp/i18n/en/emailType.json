@@ -1,0 +1,9 @@
+{
+    "galileoBookingApp": {
+        "EmailType" : {
+            "null": "",
+            "TO": "TO",
+            "FROM": "FROM"
+        }
+    }
+}

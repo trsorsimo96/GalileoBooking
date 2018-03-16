@@ -43,6 +43,23 @@ public class CacheConfiguration {
             cm.createCache(gtw.galileo.booking.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(gtw.galileo.booking.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(gtw.galileo.booking.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Airline.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Agency.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Agent.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Corporate.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Passenger.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.AirLoyalty.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.GroupAirlineAlliance.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Country.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Currency.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Airport.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Town.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Segment.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.PhoneInBooking.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.EmailInBooking.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.AddressInBooking.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.ConfigFees.class.getName(), jcacheConfiguration);
+            cm.createCache(gtw.galileo.booking.domain.Booking.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

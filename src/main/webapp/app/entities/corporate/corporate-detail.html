@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="galileoBookingApp.corporate.detail.title">Corporate</span> {{vm.corporate.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="galileoBookingApp.corporate.name">Name</span></dt>
+        <dd>
+            <span>{{vm.corporate.name}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.corporate.email">Email</span></dt>
+        <dd>
+            <span>{{vm.corporate.email}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.corporate.address">Address</span></dt>
+        <dd>
+            <span>{{vm.corporate.address}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.corporate.phone">Phone</span></dt>
+        <dd>
+            <span>{{vm.corporate.phone}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="corporate-detail.edit({id:vm.corporate.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
