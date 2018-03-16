@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="galileoBookingApp.agent.detail.title">Agent</span> {{vm.agent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="galileoBookingApp.agent.name">Name</span></dt>
+        <dd>
+            <span>{{vm.agent.name}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agent.surname">Surname</span></dt>
+        <dd>
+            <span>{{vm.agent.surname}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agent.email">Email</span></dt>
+        <dd>
+            <span>{{vm.agent.email}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agent.clientId">Client Id</span></dt>
+        <dd>
+            <span>{{vm.agent.clientId}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agent.signOnCode">Sign On Code</span></dt>
+        <dd>
+            <span>{{vm.agent.signOnCode}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.agent.agency">Agency</span></dt>
+        <dd>
+            <a ui-sref="agency-detail({id:vm.agent.agency.id})">{{vm.agent.agency.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="agent-detail.edit({id:vm.agent.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

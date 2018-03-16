@@ -1,0 +1,12 @@
+{
+    "galileoBookingApp": {
+        "FormOfPayment" : {
+            "null": "",
+            "CASH": "CASH",
+            "CHECK": "CHECK",
+            "CREDITCARD": "CREDITCARD",
+            "ENETT": "ENETT",
+            "OTHER": "OTHER"
+        }
+    }
+}

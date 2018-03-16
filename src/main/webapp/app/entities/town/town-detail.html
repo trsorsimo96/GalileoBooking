@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="galileoBookingApp.town.detail.title">Town</span> {{vm.town.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="galileoBookingApp.town.name">Name</span></dt>
+        <dd>
+            <span>{{vm.town.name}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.town.code">Code</span></dt>
+        <dd>
+            <span>{{vm.town.code}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.town.country">Country</span></dt>
+        <dd>
+            <a ui-sref="country-detail({id:vm.town.country.id})">{{vm.town.country.id}}</a>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.town.phone">Phone</span></dt>
+        <dd>
+            <a ui-sref="phone-in-booking-detail({id:vm.town.phone.id})">{{vm.town.phone.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="town-detail.edit({id:vm.town.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

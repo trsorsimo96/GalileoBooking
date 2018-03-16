@@ -1,0 +1,50 @@
+
+<div>
+    <h2><span data-translate="galileoBookingApp.airline.detail.title">Airline</span> {{vm.airline.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="galileoBookingApp.airline.code">Code</span></dt>
+        <dd>
+            <span>{{vm.airline.code}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.airline.name">Name</span></dt>
+        <dd>
+            <span>{{vm.airline.name}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.airline.description">Description</span></dt>
+        <dd>
+            <span>{{vm.airline.description}}</span>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.airline.logo">Logo</span></dt>
+        <dd>
+            <div ng-if="vm.airline.logo">
+                <a ng-click="vm.openFile(vm.airline.logoContentType, vm.airline.logo)" data-translate="entity.action.open">open</a>
+                {{vm.airline.logoContentType}}, {{vm.byteSize(vm.airline.logo)}}
+            </div>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.airline.group">Group</span></dt>
+        <dd>
+            <a ui-sref="group-airline-alliance-detail({id:vm.airline.group.id})">{{vm.airline.group.id}}</a>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.airline.segment">Segment</span></dt>
+        <dd>
+            <a ui-sref="segment-detail({id:vm.airline.segment.id})">{{vm.airline.segment.id}}</a>
+        </dd>
+        <dt><span data-translate="galileoBookingApp.airline.configFees">Config Fees</span></dt>
+        <dd>
+            <a ui-sref="config-fees-detail({id:vm.airline.configFees.id})">{{vm.airline.configFees.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="airline-detail.edit({id:vm.airline.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,9 @@
+{
+    "galileoBookingApp": {
+        "TypeAddress" : {
+            "null": "",
+            "CUSTOMER": "CUSTOMER",
+            "DELIVERY": "DELIVERY"
+        }
+    }
+}

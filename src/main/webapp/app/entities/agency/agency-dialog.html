@@ -1,0 +1,125 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAgencyLabel" data-translate="galileoBookingApp.agency.home.createOrEditLabel">Create or edit a Agency</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.agency.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.agency.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.agency.pCC" for="field_pCC">P CC</label>
+            <input type="text" class="form-control" name="pCC" id="field_pCC"
+                    ng-model="vm.agency.pCC"
+                    required/>
+            <div ng-show="editForm.pCC.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pCC.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.agency.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.agency.name"
+                    required/>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.agency.codeIata" for="field_codeIata">Code Iata</label>
+            <input type="text" class="form-control" name="codeIata" id="field_codeIata"
+                    ng-model="vm.agency.codeIata"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.agency.isIata" for="field_isIata">Is Iata</label>
+                <input type="checkbox" name="isIata" id="field_isIata"
+                          ng-model="vm.agency.isIata"/>
+            <div ng-show="editForm.isIata.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.isIata.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.agency)">
+            <label class="control-label" data-translate="galileoBookingApp.agency.logo" for="field_logo">Logo</label>
+            <div>
+                <div ng-if="vm.agency.logo" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.agency.logoContentType, vm.agency.logo)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.agency.logoContentType}}, {{vm.byteSize(vm.agency.logo)}}</span>
+                    <button type="button" ng-click="vm.agency.logo=null;vm.agency.logoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLogo($file, vm.agency)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="logo" id="field_logo"
+                    ng-model="vm.agency.logo"
+                    required/>
+            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                    ng-model="vm.agency.logoContentType" />
+            <div ng-show="editForm.logo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.logo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.agency.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.agency.email"
+                    required/>
+            <div ng-show="editForm.email.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.email.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.agency.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.agency.phone"
+                    required/>
+            <div ng-show="editForm.phone.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.phone.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.agency.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                    ng-model="vm.agency.address"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

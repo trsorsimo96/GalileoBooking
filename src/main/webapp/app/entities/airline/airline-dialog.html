@@ -1,0 +1,102 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAirlineLabel" data-translate="galileoBookingApp.airline.home.createOrEditLabel">Create or edit a Airline</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.airline.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.airline.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.airline.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.airline.code"
+                    required/>
+            <div ng-show="editForm.code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.code.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.airline.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.airline.name"
+                    required/>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="galileoBookingApp.airline.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.airline.description"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.airline)">
+            <label class="control-label" data-translate="galileoBookingApp.airline.logo" for="field_logo">Logo</label>
+            <div>
+                <div ng-if="vm.airline.logo" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.airline.logoContentType, vm.airline.logo)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.airline.logoContentType}}, {{vm.byteSize(vm.airline.logo)}}</span>
+                    <button type="button" ng-click="vm.airline.logo=null;vm.airline.logoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLogo($file, vm.airline)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="logo" id="field_logo"
+                    ng-model="vm.airline.logo"
+                    required/>
+            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                    ng-model="vm.airline.logoContentType" />
+            <div ng-show="editForm.logo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.logo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="galileoBookingApp.airline.group" for="field_group">Group</label>
+            <select class="form-control" id="field_group" name="group" ng-model="vm.airline.group" ng-options="groupAirlineAlliance as groupAirlineAlliance.id for groupAirlineAlliance in vm.groupairlinealliances track by groupAirlineAlliance.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="galileoBookingApp.airline.segment" for="field_segment">Segment</label>
+            <select class="form-control" id="field_segment" name="segment" ng-model="vm.airline.segment" ng-options="segment as segment.id for segment in vm.segments track by segment.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="galileoBookingApp.airline.configFees" for="field_configFees">Config Fees</label>
+            <select class="form-control" id="field_configFees" name="configFees" ng-model="vm.airline.configFees" ng-options="configFees as configFees.id for configFees in vm.configfees track by configFees.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
